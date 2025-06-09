@@ -1,12 +1,11 @@
 "use client";
 
-// import { Footer } from "@/Components/Footer";
 // import { CarouselLoading } from "@/Components/CarouselLoading";
-// import { Header } from "@/Components/Header";
-// import { Popular } from "@/Components/Popular";
-// import { TopRated } from "@/Components/Toprated";
-// import { Upcoming } from "@/Components/Upcoming";
+
 import { CarouselDemo } from "@/components/Carousell";
+import { Popular } from "@/components/Popular";
+import { TopRated } from "@/components/TopRated";
+import { Upcoming } from "@/components/Upcoming";
 import { NowPlayingMovieType } from "@/Types";
 import { useEffect, useState } from "react";
 export default function Home() {
@@ -24,7 +23,7 @@ export default function Home() {
           method: "GET",
           headers: {
             accept: "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN}  `,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN}`,
           },
         }
       );
@@ -48,9 +47,9 @@ export default function Home() {
         {!loading && <CarouselDemo nowPlayingMovie={nowPlayingMovie} />}
       </div>
       <div className="max-w-[1280px] w-full mx-auto">
-        {/* <Upcoming /> */}
-        {/* <Popular /> */}
-        {/* <TopRated /> */}
+        <Upcoming />
+        <Popular />
+        <TopRated />
       </div>
       <div className="max-w-[1280px] w-full mx-auto ">{/* <Footer /> */}</div>
     </div>

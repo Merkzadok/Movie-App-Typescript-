@@ -1,16 +1,9 @@
+import { MovieType } from "@/Types";
 import { Star } from "lucide-react";
 import Link from "next/link";
 // import { MovieTrailer } from "./MovieTrailer";
 
-type MovieCarouselItemType = {
-  // movie:Movie
-  movieId: string;
-};
-
-export const MovieCarouselItem = ({
-  movie,
-  movieId,
-}: MovieCarouselItemType) => {
+export const MovieCarouselItem = ({ movie }: { movie: MovieType }) => {
   return (
     <div className="md:relative">
       <Link href={`/details/${movie.id}`}>

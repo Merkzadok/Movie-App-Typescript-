@@ -26,10 +26,10 @@ export function CarouselDemo({
       //   ]}
     >
       <CarouselContent className="px-5">
-        {nowPlayingMovie.slice(0, 5).map((movie, index) => (
+        {nowPlayingMovie?.slice(0, 5).map((movie, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <MovieCarouselItem movie={movie} movieId={movie.id} />
+              <MovieCarouselItem movie={movie} />
             </div>
           </CarouselItem>
         ))}
