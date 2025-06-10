@@ -1,4 +1,4 @@
-export const getCrewDetails = async (crewId: number) => {
+export const getCrewDetails = async (crewId: string) => {
   // console.log("crewDetails", getCrewDetails);
   try {
     const response = await fetch(
@@ -13,7 +13,6 @@ export const getCrewDetails = async (crewId: number) => {
       }
     );
     const movies = await response.json();
-    console.log(movies);
     return movies;
   } catch (error) {
     console.log(error);

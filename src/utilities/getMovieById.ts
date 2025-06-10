@@ -1,12 +1,9 @@
-import { MovieType } from "@/Types";
-
-export const getMovieById = async (movieId: MovieType) => {
+export const getMovieById = async (movieId: string | string[]) => {
   // console.log( "movieID", movieId);
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}movie/${movieId}?language=en-US`,
       {
-        //
         method: "GET",
         headers: {
           accept: "appliaction/json",

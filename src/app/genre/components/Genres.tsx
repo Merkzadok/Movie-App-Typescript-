@@ -22,6 +22,7 @@ export const GenresDemo = () => {
 
     getGenres();
   }, []);
+  console.log("genres", genres);
 
   return (
     <div>

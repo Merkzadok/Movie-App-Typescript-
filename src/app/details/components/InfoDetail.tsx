@@ -1,8 +1,20 @@
+"use client";
 import { MovieType } from "@/Types";
+import { getMovieById } from "@/utilities/getMovieById";
 import { Star } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export const InfoDetail = ({ movie }: { movie: MovieType }) => {
-  // console.log("Movie", movie);
+export const InfoDetail = ({ movieId }: { movieId: string }) => {
+  const [movie, setMovie] = useState<MovieType>({} as MovieType);
+  useEffect(() => {
+    if (!movieId) return;
+    const getMovie = async () => {
+      const data = await getMovieById(movieId);
+      setMovie(data);
+    };
+
+    getMovie();
+  }, [movieId]);
   return (
     <div>
       <div className="flex justify-between px-5 max-w-[1280px] w-screen mx-auto ">
