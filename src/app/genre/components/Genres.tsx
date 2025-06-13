@@ -11,7 +11,7 @@ type Genre = {
   name: string;
 };
 
-export const GenresDemo = () => {
+export const GenresDemo = ({ genreId }: { genreId: string | null }) => {
   const [genres, setGenres] = useState<Genre[]>([]);
   useEffect(() => {
     const getGenres = async () => {
@@ -19,19 +19,17 @@ export const GenresDemo = () => {
 
       setGenres(data);
     };
-
     getGenres();
   }, []);
-  console.log("genres", genres);
 
   return (
-    <div>
+    <div className="max-w-[600px] w-screen">
       <div className="pt-5 flex gap-3 flex-wrap ">
         {genres?.map((genre) => (
-          <Link key={genre.id} href={`/genre/${genre.id}`}>
+          <Link key={genre.id} href={`/genre?genreId=${genre.id}`}>
             <Button
               className="cursor-pointer w-35"
-              variant="outline"
+              variant={genreId === String(genre.id) ? "default" : "outline"}
               key={genre.id}
             >
               {genre.name}

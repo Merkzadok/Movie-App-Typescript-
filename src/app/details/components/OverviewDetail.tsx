@@ -44,7 +44,7 @@ export const OverviewDetail = ({ movieId }: { movieId: string }) => {
           <div className="pb-10 md:flex gap-5 ">
             {" "}
             {movie?.genres?.map((genre) => (
-              <Link key={genre.id} href={`/genre/${genre.id}`}>
+              <Link key={genre.id} href={`/genre?genreId=${genre.id}`}>
                 <Button
                   className="cursor-pointer"
                   key={genre.id}

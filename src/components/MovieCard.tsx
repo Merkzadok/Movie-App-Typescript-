@@ -3,7 +3,6 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 
 export const MovieCard = ({ movie }: { movie: MovieType }) => {
-  console.log("MovieCard", movie);
   return (
     <div className="cursor-pointer hover:scale-105">
       <Link href={`/details/${movie?.id}`}>

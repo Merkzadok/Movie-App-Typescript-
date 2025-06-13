@@ -1,6 +1,7 @@
 import { MovieType } from "@/Types";
 import { Star } from "lucide-react";
 import Link from "next/link";
+import { MovieTrailer } from "./MovieTrailer";
 // import { MovieTrailer } from "./MovieTrailer";
 
 export const MovieCarouselItem = ({ movie }: { movie: MovieType }) => {
@@ -42,7 +43,9 @@ export const MovieCarouselItem = ({ movie }: { movie: MovieType }) => {
           />
           Watch Trailer
         </button> */}
-        <div>{/* <MovieTrailer movieId={movie?.id} /> */}</div>
+        <div>
+          <MovieTrailer movieId={movie?.id} />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 // import { MovieTrailer } from "../MovieTrailer";
 "use client";
+import { MovieTrailer } from "@/components/MovieTrailer";
 import { MovieType } from "@/Types";
 import { getMovieById } from "@/utilities/getMovieById";
 import { useEffect, useState } from "react";
@@ -18,7 +19,7 @@ export const PosterDetail = ({ movieId }: { movieId: string }) => {
   // console.log("movie", movie);
   return (
     <div>
-      <div className="flex gap-5  ">
+      <div className="flex gap-5 relative max-w-[1280px] mx-auto w-full px-5 md:px-0">
         <img
           src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie?.poster_path}`}
           alt="movie-photo"
@@ -30,6 +31,9 @@ export const PosterDetail = ({ movieId }: { movieId: string }) => {
             className="w-screen h-[211px] object-fit md:h-[428px] md:w-screen"
           />
           <div className="absolute bottom-5 left-5"></div>
+        </div>
+        <div className="absolute bottom-5 left-5">
+          <MovieTrailer movieId={movie?.id} />
         </div>
       </div>
     </div>

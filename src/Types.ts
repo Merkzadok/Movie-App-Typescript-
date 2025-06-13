@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export type NowPlayingMovieType = {
   id: number;
   title: string;
@@ -50,6 +52,8 @@ export type MovieType = {
   cast: Cast[];
   Genre: Genre[];
   genres: Genre[];
+  results: MovieType[];
+  total_pages: number;
 };
 export type cat = {
   page: number;
@@ -59,5 +63,9 @@ export type cat = {
 };
 export type Genre = {
   id: number;
+  name: string;
+};
+export type MovieTrailerType = {
+  key: string;
   name: string;
 };

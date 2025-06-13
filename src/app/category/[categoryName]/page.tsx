@@ -1,23 +1,19 @@
 "use client";
-
 import { MovieCard } from "@/components/MovieCard";
 import { cat } from "@/Types";
-// import { MovieCard } from "@/Components/MovieCard";
-// import { getCategoryName } from "@/utilities/getCategoryName";
 import { getCategoryName } from "@/utilities/getCategoryName";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+
 const Page = () => {
-  const router = useRouter();
-  const categoryName = router.query?.categoryName;
-  // `/movie/${categoryName}?language=en-US&page=1`;
+  const categoryName = useParams();
   const [cat, setCat] = useState<cat | null>(null);
-  console.log("Cat", cat);
+
   useEffect(() => {
-    // if (!movieId) return;
+    //
     const getCat = async () => {
-      const dataCat = await getCategoryName(categoryName as string);
-      setCat(dataCat);
+      const data = await getCategoryName(categoryName?.categoryName as string);
+      setCat(data);
     };
 
     getCat();

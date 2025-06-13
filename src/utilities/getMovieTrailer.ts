@@ -1,17 +1,16 @@
-export const getCategoryName = async (categoryName: string) => {
+export const getMovieTrailer = async (movieId: number) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}movie/${categoryName}?language=en-US&page=1`,
+      `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}movie/${movieId}/videos?language=en-US`,
       {
         method: "GET",
         headers: {
-          accept: "application/json",
+          accept: "appliaction/json",
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN}`,
         },
       }
     );
     const movies = await response.json();
-    console.log(movies);
     return movies;
   } catch (error) {
     console.log(error);
